@@ -1,72 +1,235 @@
 
-<!-- FIXED HOSTING PLANS -->
-<section class="hosting-plans">
-  <h2>Choose Your Hosting Plan</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071b16">
+<title>Cyprian Bot Hosting</title>
+<style>
+:root {
+  --bg:#07110f; --card:#10251d; --line:#28503e;
+  --text:#f4fff8; --muted:#a8c5b6; --green:#36e39a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.55 Arial,sans-serif;
+}
+.wrap { width:min(1000px,92%); margin:auto; }
+header { padding:20px 0; font-weight:bold; font-size:20px; }
+header span { color:var(--green); }
+nav { display:flex; gap:16px; flex-wrap:wrap; margin-top:12px; }
+nav a { color:var(--muted); text-decoration:none; }
+section { padding:24px 0; }
+h1 { font-size:clamp(36px,7vw,58px); line-height:1.05; }
+h2 { font-size:28px; }
+.muted,.small { color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.plans { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.card {
+  background:var(--card); border:1px solid var(--line);
+  border-radius:16px; padding:18px; margin-bottom:12px;
+}
+.price { color:var(--green); font-size:36px; font-weight:bold; }
+.btn {
+  display:block; width:100%; text-align:center; padding:13px;
+  margin-top:12px; border-radius:10px; border:1px solid var(--line);
+  background:#173528; color:white; text-decoration:none;
+  font-weight:bold; cursor:pointer; font-size:16px;
+}
+.primary { background:var(--green); color:#052016; border-color:var(--green); }
+.field { display:flex; flex-direction:column; gap:7px; margin:14px 0; }
+input,select,textarea {
+  width:100%; padding:12px; border-radius:9px;
+  border:1px solid #315b49; background:#071711; color:white;
+  font:inherit;
+}
+textarea { min-height:85px; }
+.row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.notice { padding:12px; background:#2b2412; color:#ffe7ad; border-radius:10px; }
+.status { display:none; padding:12px; margin-top:12px; border-radius:9px; }
+.success { display:block; background:#163c2b; color:#c6ffdd; }
+.error { display:block; background:#421e1e; color:#ffd2d2; }
+footer { border-top:1px solid var(--line); margin-top:25px; padding:20px 0; }
+@media(max-width:600px) {
+  .grid,.plans,.row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  🟢 Cyprian <span>Bot Hosting</span>
+  <nav>
+    <a href="#bots">Bots</a>
+    <a href="#plans">Plans</a>
+    <a href="#submit">Submit Request</a>
+  </nav>
+</header>
 
-  <div class="plan-card">
-    <h3>20 Days Plan</h3>
-    <p class="plan-price">KSh 50</p>
-    <p>Bot hosting for 20 days</p>
+<main class="wrap">
+<section>
+  <p style="color:var(--green)">WHATSAPP BOT HOSTING</p>
+  <h1>Your bot.<br><span style="color:var(--green)">Your connection.</span></h1>
+  <p class="muted">Choose a bot, pair your WhatsApp, submit your hosting request and select your plan.</p>
+  <a class="btn primary" href="#bots">Choose a bot</a>
+</section>
 
-    <a
-      class="payment-btn"
-      href="https://cyprian.courtneytech.space/"
-    >
-      Make Payment — KSh 50
-    </a>
-  </div>
-
-  <div class="plan-card">
-    <h3>35 Days Plan</h3>
-    <p class="plan-price">KSh 70</p>
-    <p>Bot hosting for 35 days</p>
-
-    <a
-      class="payment-btn"
-      href="https://cyprian.courtneytech.space/"
-    >
-      Make Payment — KSh 70
-    </a>
+<section id="bots">
+  <h2>Step 1 — Choose your bot</h2>
+  <p class="muted">Tap Pair to open the provider. Complete WhatsApp linking, then return here.</p>
+  <div class="grid">
+    <article class="card">
+      <h3>🤖 BWM</h3>
+      <a class="btn" href="https://main.bwmxmd.co.ke/scan/" target="_blank" rel="noopener">Pair ↗</a>
+    </article>
+    <article class="card">
+      <h3>⚡ Keith MD</h3>
+      <a class="btn" href="https://keithsite.lol/keithpair" target="_blank" rel="noopener">Pair ↗</a>
+    </article>
+    <article class="card">
+      <h3>🛡️ Cypher-X</h3>
+      <a class="btn" href="https://pair.cypherxbot.space/" target="_blank" rel="noopener">Pair ↗</a>
+    </article>
+    <article class="card">
+      <h3>🚀 Flash MD V3</h3>
+      <a class="btn" href="https://flashv3.onrender.com/" target="_blank" rel="noopener">Pair ↗</a>
+    </article>
   </div>
 </section>
 
-<style>
-.hosting-plans {
-  max-width: 600px;
-  margin: 25px auto;
-  padding: 15px;
-  color: #fff;
-  text-align: center;
-  font-family: Arial, sans-serif;
+<section id="plans">
+  <h2>Step 2 — Choose a fixed plan</h2>
+  <div class="plans">
+    <article class="card">
+      <h3>20 Days</h3>
+      <div class="price">KSh 50</div>
+      <p class="muted">Hosting for 20 days</p>
+      <button class="btn primary" type="button" onclick="choosePlan('20 days - KSh 50')">Make Payment — KSh 50</button>
+    </article>
+    <article class="card">
+      <h3>35 Days</h3>
+      <div class="price">KSh 70</div>
+      <p class="muted">Hosting for 35 days</p>
+      <button class="btn primary" type="button" onclick="choosePlan('35 days - KSh 70')">Make Payment — KSh 70</button>
+    </article>
+  </div>
+  <p class="small">Payment opens your existing M-PESA website. The amount must be supported by that payment page.</p>
+</section>
+
+<section id="submit">
+  <h2>Step 3 — Submit your hosting request</h2>
+  <p class="muted">Fill in your details so your hosting request reaches the admin.</p>
+  <div class="card">
+    <div class="notice">
+      For security, do not paste WhatsApp session strings into this ordinary form or into email. Secure session submission needs a protected backend.
+    </div>
+
+    <form id="requestForm" action="https://formspree.io/f/meaeywly" method="POST">
+      <input type="hidden" name="_subject" value="New Cyprian Bot Hosting Request">
+
+      <div class="row">
+        <div class="field">
+          <label for="customer">Your name *</label>
+          <input id="customer" name="customer_name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="phone">WhatsApp / M-PESA number *</label>
+          <input id="phone" name="customer_phone" required inputmode="tel" placeholder="07XX XXX XXX">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="bot">Selected bot *</label>
+          <select id="bot" name="selected_bot" required>
+            <option value="">Choose a bot</option>
+            <option value="BWM">BWM</option>
+            <option value="Keith MD">Keith MD</option>
+            <option value="Cypher-X">Cypher-X</option>
+            <option value="Flash MD V3">Flash MD V3</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="plan">Hosting plan *</label>
+          <select id="plan" name="selected_plan" required>
+            <option value="">Choose a plan</option>
+            <option value="20 days - KSh 50">20 days - KSh 50</option>
+            <option value="35 days - KSh 70">35 days - KSh 70</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="txn">M-PESA transaction code (optional)</label>
+        <input id="txn" name="mpesa_transaction_code" maxlength="20" placeholder="Transaction code if already paid">
+        <span class="small">Never enter your M-PESA PIN.</span>
+      </div>
+
+      <div class="field">
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" name="notes" placeholder="Any additional details"></textarea>
+      </div>
+
+      <div class="field">
+        <label>
+          <input type="checkbox" name="consent" value="yes" required style="width:auto">
+          I confirm these details are correct.
+        </label>
+      </div>
+
+      <button id="submitBtn" class="btn primary" type="submit">Submit Hosting Request</button>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </form>
+
+    <a id="paymentLink" class="btn primary" href="https://cyprian.courtneytech.space/" target="_blank" rel="noopener">
+      Open M-PESA Payment Page
+    </a>
+    <p class="small">A successful form submission confirms receipt of the request only. It does not confirm payment or deploy the bot.</p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">© <span id="year"></span> Cyprian Bot Hosting</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function choosePlan(plan) {
+  document.getElementById("plan").value = plan;
+  document.getElementById("submit").scrollIntoView({behavior:"smooth"});
 }
 
-.plan-card {
-  background: #10251d;
-  border: 1px solid #23865b;
-  border-radius: 16px;
-  padding: 24px 16px;
-  margin: 18px 0;
-}
+const form = document.getElementById("requestForm");
+const statusBox = document.getElementById("status");
+const submitBtn = document.getElementById("submitBtn");
 
-.plan-price {
-  color: #39d98a;
-  font-size: 32px;
-  font-weight: bold;
-  margin: 12px 0;
-}
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  submitBtn.disabled = true;
+  statusBox.style.display = "block";
+  statusBox.className = "status";
+  statusBox.textContent = "Submitting your request…";
 
-.payment-btn {
-  display: block;
-  background: #16a765;
-  color: white;
-  padding: 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 18px;
-}
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
 
-.payment-btn:hover {
-  background: #118451;
-}
-</style>
+    if (!response.ok) throw new Error("Submission failed");
+
+    statusBox.className = "status success";
+    statusBox.textContent = "Request submitted successfully! Your request details have been sent.";
+    form.reset();
+  } catch (error) {
+    statusBox.className = "status error";
+    statusBox.textContent = "Submission could not be confirmed. Please check your connection and try again.";
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
